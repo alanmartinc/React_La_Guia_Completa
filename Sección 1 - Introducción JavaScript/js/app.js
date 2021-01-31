@@ -1,14 +1,16 @@
-// Function declaration
-function actividad1(nombre, actividad){
-    console.log(`La persona ${nombre}, esta realizando la actividad ${actividad}`);
+let viajando1 = function(destino){
+    return `Viajando a la ciudad de: ${destino}`;
 }
 
-actividad1('Alan', 'Aprender JavaScript');
-actividad1();
+let viaje1;
+viaje1 = viajando1('Buenos Aires');
 
-// Function expression
-const actividad2 = function(nombre='Lucas', actividad='Aprender Python'){
-    console.log(`La persona ${nombre}, esta realizando la actividad ${actividad}`);
-}
+console.log(viaje1);
 
-actividad2();
+// Arrow functions simplificado
+let viajando2 = destino => `Viajando a la ciudad de: ${destino}`;
+
+let viaje2;
+viaje2 = viajando2('Londres');
+
+console.log(viaje2);
