@@ -1,15 +1,19 @@
-// Object constructor
-function Tarea(nombre, urgencia) {
-    this.nombre = nombre;
-    this.urgencia = urgencia;
+// Object Destructuring: extraer valores de un objeto
+const aprendiendoJS = {
+    version: {
+        nueva: 'ES6',
+        anterior: 'ES5'
+    },
+    framework: ['VueJS', 'AngularJS']
 }
 
-// Agregar un prototype a tarea:
-Tarea.prototype.mostrarInformacionTarea = function(){
-    return `La tarea ${this.nombre} tiene una prioridad de ${this.urgencia}`;
-}
+console.log(aprendiendoJS);
 
-// Crear una nueva tarea
-const tarea1 = new Tarea('Aprender JavaScript y React', 'Urgente');
-console.log(tarea1);
-console.log(tarea1.mostrarInformacionTarea());
+// Versión anterior
+let Version = aprendiendoJS.version.nueva;
+let Framework = aprendiendoJS.framework[0];
+console.log(Version, Framework);
+
+// Versión nueva: Se debe pasar el mismo nombre de las propiedades del objeto
+let {anterior} = aprendiendoJS.version;
+console.log(anterior);
