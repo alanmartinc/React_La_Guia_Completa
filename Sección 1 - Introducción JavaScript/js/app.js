@@ -1,30 +1,25 @@
-// VAR
-var musica1 = 'Rock';
+const nombre = 'Alan';
+const trabajo = 'Desarrollador Web';
 
-if(musica1) {
-    var musica1 = 'Grunge';
-    console.log('Dentro del IF: ', musica1);
-}
-console.log('Fuera del IF: ', musica1);
+// Concatenar JavaScript
+console.log('Nombre: ' + nombre + ', Trabajo: ' + trabajo);
+console.log(`Nombre: ${nombre}, Trabajo: ${trabajo}`);
 
-console.log('<br>');
+// Concatenar con múltiples lineas
+const contenedorApp1 = document.querySelector('#app1');
+let html1 = '<ul>' +
+                '<li> Nombre: ' + nombre + '</li>' +
+                '<li> Trabajo: ' + trabajo + '</li>' +
+            '</ul>';
 
-// LET
-let musica2 = 'Rock';
+contenedorApp1.innerHTML = html1;
 
-if(musica2) {
-    let musica2 = 'Grunge';
-    console.log('Dentro del IF: ', musica2);
-}
-console.log('Fuera del IF: ', musica2);
+const contenedorApp2 = document.querySelector('#app2');
+let html = `
+            <ul>
+                <li>Nombre: ${nombre} </li>
+                <li>Trabajo: ${trabajo} </li>
+            </ul>
+`;
 
-console.log('<br>');
-
-// CONST
-const musica3 = 'Rock';
-
-if(musica3) {
-    const musica3 = 'Grunge';
-    console.log('Dentro del IF: ', musica3);
-}
-console.log('Fuera del IF: ', musica3);
+contenedorApp2.innerHTML = html;
