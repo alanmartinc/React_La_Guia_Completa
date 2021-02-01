@@ -18,6 +18,9 @@ function App() {
     {id: 4, nombre: 'Camisa AngularJS', precio: 20},
   ]);
 
+  // State para carrito de compras
+  const [carrito, agregarProducto] = useState([]);
+
   // Obtener la fecha
   const fecha = new Date().getFullYear();
   return (
@@ -30,6 +33,9 @@ function App() {
           // Llave para que sea único 
           key = {producto.id}
           producto = {producto}
+          productos = {productos}
+          carrito = {carrito}
+          agregarProducto = {agregarProducto}
         />
       ))}
       <Section titulo="Titulo del texto" descripcion="Lorem ipsum dolor sit amet consectetur adipiscing elit venenatis libero, tellus sociosqu fusce neque vivamus cras tortor sed, mi dictum at commodo ad magna orci curae. Eu risus sem enim ridiculus sociis vivamus fermentum, pretium pharetra mus tellus pellentesque nec dignissim quis, feugiat dis rutrum eros sodales primis. Ullamcorper tincidunt nascetur sagittis montes vitae quis congue massa phasellus, pharetra justo tempus purus dui urna mauris habitasse venenatis aliquam, platea imperdiet sociosqu egestas leo parturient vivamus laoreet."/>
