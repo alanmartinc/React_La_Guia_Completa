@@ -1,31 +1,23 @@
-// .Filter .Find y .Reduce y Métodos para Arreglos
-const personas = [
-    { nombre: 'Alan', edad: 24, aprendiendo: 'JavaScript'},
-    { nombre: 'Lucas', edad: 26, aprendiendo: 'PHP'},
-    { nombre: 'Jose', edad: 35, aprendiendo: 'Python'},
-    { nombre: 'Carlos', edad: 50, aprendiendo: 'Java'},
-    { nombre: 'Alicia', edad: 70, aprendiendo: 'C++'},
-]
-                
-console.log(personas);
+// Promises
+const aplicarDescuento = new Promise((resolve,reject) => {
+    setTimeout( () => {
+        let descuento = true;
 
-// Mayores de 30 años
-const mayores = personas.filter(persona => {
-    return persona.edad > 30;
+        if(descuento) {
+            resolve('Descuento aplicado!');
+        } else {
+            reject('No se pudo aplicar el descuento');
+        }
+    }, 3000);
 });
 
-console.log(mayores);
-
-// Que aprende Alan y su edad
-const alan = personas.find(persona => {
-    return persona.nombre === 'Alan';
+aplicarDescuento.then(resultado => {
+    console.log(resultado);
+}).catch(error => {
+    console.log(error);
 });
 
-console.log("Alan esta aprendiendo " + alan.aprendiendo);
-
-// Total de las edades
-let total = personas.reduce((edadTotal, persona) => {
-    return edadTotal + persona.edad;
-}, 0);
-
-console.log(total);
+/* 
+Resolve: Se ejecuta cuando el llamado al Promise es correcto.
+Reject: Se ejecuta cuando hubo un error.
+*/
