@@ -6,6 +6,12 @@ console.log(nombreTarea);
 import urgencia from './tareas.js';
 console.log(urgencia);
 
+// Importar una función
+import {crearTarea, tareaCompletada} from './tareas.js';
+const tarea1 = crearTarea('Conocer a mis suegros', 'Baja');
+console.log(tarea1);
+tareaCompletada();
+
 /* 
 Módulos en ES6:
 1) Exportar script
