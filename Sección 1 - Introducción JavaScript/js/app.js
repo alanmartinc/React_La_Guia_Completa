@@ -1,27 +1,26 @@
-// Arreglos, Map y Object.Keys
-const carrito1 = ['Producto 1', 'Producto 2', 'Producto 3'];
-console.log(carrito1);
+// Spread operator
+let lenguajes = ['JavaScript', 'PHP', 'Python'];
+let frameworks = ['VueJS', 'Laravel', 'Django'];
 
-// Arreglos
-const appContenedor = document.querySelector('#app');
+// Unir los arreglos en uno solo
 
-let html = '';
-carrito1.forEach(producto => {
-    html += `<li>${producto}</li>`;
-});
-appContenedor.innerHTML = html;
+// Versión anterior
+let combinacion1 = lenguajes.concat(frameworks);
+console.log(combinacion1);
 
-// Map
-carrito2 = ['Producto 1', 'Producto 2', 'Producto 3'];
+// Versión nueva
+let combinacion2 = [...lenguajes,...frameworks];
+console.log(combinacion2);
 
-carrito2.map(producto => {
-    return 'El producto es ' + producto;
-});
+// Con Spread
+let [ultimoSpread] = [...lenguajes].reverse();
+console.log(lenguajes);
+console.log(ultimoSpread);
 
-// Object.Keys
-const persona = {
-    nombre: 'Alan',
-    edad: 24
+// Otro ejemplo con Spread
+function suma(a,b,c){
+    console.log(a+b+c);
 }
 
-console.log(Object.keys(persona));
+const numeros = [1,2,3];
+suma(...numeros);
