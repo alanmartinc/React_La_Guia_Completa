@@ -1,26 +1,31 @@
-// Spread operator
-let lenguajes = ['JavaScript', 'PHP', 'Python'];
-let frameworks = ['VueJS', 'Laravel', 'Django'];
+// .Filter .Find y .Reduce y Métodos para Arreglos
+const personas = [
+    { nombre: 'Alan', edad: 24, aprendiendo: 'JavaScript'},
+    { nombre: 'Lucas', edad: 26, aprendiendo: 'PHP'},
+    { nombre: 'Jose', edad: 35, aprendiendo: 'Python'},
+    { nombre: 'Carlos', edad: 50, aprendiendo: 'Java'},
+    { nombre: 'Alicia', edad: 70, aprendiendo: 'C++'},
+]
+                
+console.log(personas);
 
-// Unir los arreglos en uno solo
+// Mayores de 30 años
+const mayores = personas.filter(persona => {
+    return persona.edad > 30;
+});
 
-// Versión anterior
-let combinacion1 = lenguajes.concat(frameworks);
-console.log(combinacion1);
+console.log(mayores);
 
-// Versión nueva
-let combinacion2 = [...lenguajes,...frameworks];
-console.log(combinacion2);
+// Que aprende Alan y su edad
+const alan = personas.find(persona => {
+    return persona.nombre === 'Alan';
+});
 
-// Con Spread
-let [ultimoSpread] = [...lenguajes].reverse();
-console.log(lenguajes);
-console.log(ultimoSpread);
+console.log("Alan esta aprendiendo " + alan.aprendiendo);
 
-// Otro ejemplo con Spread
-function suma(a,b,c){
-    console.log(a+b+c);
-}
+// Total de las edades
+let total = personas.reduce((edadTotal, persona) => {
+    return edadTotal + persona.edad;
+}, 0);
 
-const numeros = [1,2,3];
-suma(...numeros);
+console.log(total);
