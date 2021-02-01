@@ -1,23 +1,30 @@
-// Promises
-const aplicarDescuento = new Promise((resolve,reject) => {
-    setTimeout( () => {
-        let descuento = true;
+// Promises con Ajax
+const descargarUsuarios = cantidad => new Promise((resolve, reject) => {
+    const api = `https://randomuser.me/api/?results=${cantidad}&nat=us`;
 
-        if(descuento) {
-            resolve('Descuento aplicado!');
+    // Llamado a Ajax
+    const xhr = new XMLHttpRequest();
+
+    // Abrir la conexión
+    xhr.open('GET', api, true);
+
+    // On load
+    xhr.onload = () => {
+        if(xhr.status === 200) {
+            resolve(JSON.parse(xhr.responseText).results);
         } else {
-            reject('No se pudo aplicar el descuento');
+            reject(Error(xhr.statusText));
         }
-    }, 3000);
+    }
+
+    // Opcional on error
+    xhr.onerror = (error) => reject(error);
+
+    // Send
+    xhr.send();
 });
 
-aplicarDescuento.then(resultado => {
-    console.log(resultado);
-}).catch(error => {
-    console.log(error);
-});
-
-/* 
-Resolve: Se ejecuta cuando el llamado al Promise es correcto.
-Reject: Se ejecuta cuando hubo un error.
-*/
+descargarUsuarios(20).then(
+    miembros => console.log(miembros),
+    error => console.error(new Error('Hubo un error' + error))
+)
