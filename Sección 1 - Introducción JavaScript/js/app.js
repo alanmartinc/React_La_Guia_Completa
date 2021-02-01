@@ -1,19 +1,22 @@
-// Object Destructuring: extraer valores de un objeto
-const aprendiendoJS = {
-    version: {
-        nueva: 'ES6',
-        anterior: 'ES5'
-    },
-    framework: ['VueJS', 'AngularJS']
-}
-
-console.log(aprendiendoJS);
+// Object literal enhancement
+const banda = 'Metallica';
+const genero = 'Heavy Metal';
+const canciones = ['Master Of Puppets', 'Seek & Destroy', 'Enter Sandman'];
 
 // Versión anterior
-let Version = aprendiendoJS.version.nueva;
-let Framework = aprendiendoJS.framework[0];
-console.log(Version, Framework);
+const metallica1 = {
+    banda: banda,
+    genero: genero,
+    canciones: canciones
+}
 
-// Versión nueva: Se debe pasar el mismo nombre de las propiedades del objeto
-let {anterior} = aprendiendoJS.version;
-console.log(anterior);
+console.log(metallica1);
+
+// Versión nueva
+const metallica2 = {banda, genero, canciones};
+console.log(metallica2);
+
+/* 
+Object destructuring: Extraer valores de un objeto.
+Object literal enhancement: Para ponerlos juntos en un solo objeto.
+*/
