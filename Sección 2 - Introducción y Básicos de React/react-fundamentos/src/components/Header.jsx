@@ -13,7 +13,7 @@ function Header(){
 
     // Lo que este en el return es lo que se ve en pantalla
     return(
-        <h1 className="titulo">{mensaje}</h1>
+        <h1 className="header">{mensaje}</h1>
     )
 }
 
