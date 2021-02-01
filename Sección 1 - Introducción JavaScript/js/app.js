@@ -1,10 +1,27 @@
-// Métodos o funciones en un objeto
+// Arreglos, Map y Object.Keys
+const carrito1 = ['Producto 1', 'Producto 2', 'Producto 3'];
+console.log(carrito1);
+
+// Arreglos
+const appContenedor = document.querySelector('#app');
+
+let html = '';
+carrito1.forEach(producto => {
+    html += `<li>${producto}</li>`;
+});
+appContenedor.innerHTML = html;
+
+// Map
+carrito2 = ['Producto 1', 'Producto 2', 'Producto 3'];
+
+carrito2.map(producto => {
+    return 'El producto es ' + producto;
+});
+
+// Object.Keys
 const persona = {
     nombre: 'Alan',
-    edad: 24,
-    mostrarInformacion(){
-        console.log(`${this.nombre} tiene ${this.edad} años.`);
-    }
+    edad: 24
 }
 
-persona.mostrarInformacion();
+console.log(Object.keys(persona));
