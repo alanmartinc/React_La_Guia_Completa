@@ -1,16 +1,8 @@
-// Forma número uno
-import {nombreTarea} from './tareas.js';
-console.log(nombreTarea);
-
-// Forma número dos
-import urgencia from './tareas.js';
-console.log(urgencia);
-
-// Importar una función
-import {crearTarea, tareaCompletada} from './tareas.js';
-const tarea1 = crearTarea('Conocer a mis suegros', 'Baja');
+// Importar una clase
+import Tarea from './tareas.js';
+const tarea1 = new Tarea('Aprender JavaScript', 'Urgente');
 console.log(tarea1);
-tareaCompletada();
+tarea1.mostrar();
 
 /* 
 Módulos en ES6:
