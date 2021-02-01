@@ -24,7 +24,23 @@ const descargarUsuarios = cantidad => new Promise((resolve, reject) => {
     xhr.send();
 });
 
+// Me muestra 20 usuarios
 descargarUsuarios(20).then(
-    miembros => console.log(miembros),
+    miembros => imprimirHTML(miembros),
     error => console.error(new Error('Hubo un error' + error))
 )
+
+// Me los muestra de forma individual
+function imprimirHTML(usuarios){
+    let html = '';
+    usuarios.forEach(usuario => {
+        html += `
+            <li>Nombre: ${usuario.name.first} ${usuario.name.last}</li>
+            <li>Pais: ${usuario.nat}</li>
+            <li>Imagen: <img src="${usuario.picture.medium}"></li>
+        `;
+    });
+
+    const contenedorApp = document.querySelector('#app');
+    contenedorApp.innerHTML = html;
+}
