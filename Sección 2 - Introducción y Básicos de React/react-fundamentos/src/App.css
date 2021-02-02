@@ -38,9 +38,23 @@
 }
 
 .header, .section, .footer {
-  color: white;
+  color: rgb(212, 183, 14);
   text-align: center;
   background-color: black;
   margin: 10px;
   padding: 10px;
+}
+
+.lista-de-productos {
+  width: 40%;
+  text-align: justify;
+  margin: 10px;
+  padding: 10px;
+  background-color: #eee;
+  border: 1px solid black;
+  box-shadow: 10px 5px 5px black;
+}
+
+.lista-de-productos h1 {
+  color: rgb(212, 183, 14);
 }

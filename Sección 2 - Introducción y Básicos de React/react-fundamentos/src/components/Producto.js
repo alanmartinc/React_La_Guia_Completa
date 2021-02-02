@@ -10,7 +10,7 @@ const Producto = ({producto, carrito, agregarProducto, productos}) => {
         agregarProducto([
             // Copiamos los productos del carrito
             ...carrito,
-            producto
+            ...producto
         ]);
     }
 
