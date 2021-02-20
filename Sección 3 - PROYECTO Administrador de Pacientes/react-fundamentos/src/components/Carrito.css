@@ -1,0 +1,13 @@
+.carrito {
+    position: absolute;
+    text-align: right;
+    margin-top: 85px;
+    margin-right: 10px;
+    padding: 10px;
+    top: 0;
+    right: 0;
+    width: 20%;
+    background-color: #eee;
+    border: 1px solid black;
+    box-shadow: 0px 5px 10px black;
+  }
