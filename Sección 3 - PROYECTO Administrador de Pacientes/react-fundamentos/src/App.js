@@ -20,6 +20,9 @@ function App() {
     guardarCitas(nuevasCitas)
   }
 
+  // Mensaje condicional
+  const titulo = citas.length === 0 ? 'No hay citas' : 'Administra tus Citas'
+
   return (
     <Fragment>
       <h1>Administrador de Pacientes</h1>
@@ -30,7 +33,7 @@ function App() {
             <Formulario crearCita={crearCita}/>
           </div>
           <div className="one-half column">
-            <h2>Administra tus Citas</h2>
+            <h2>{titulo}</h2>
             {citas.map(cita => (
               <Cita key={cita.id} cita={cita} eliminarCita={eliminarCita}/>
             ))}
