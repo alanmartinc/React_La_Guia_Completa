@@ -2,7 +2,11 @@ import React from 'react';
 
 function App() {
   return (
-    <h1>Presupuesto</h1>
+    <div className="container">
+        <header>
+            <h1>Gasto Semanal</h1>
+        </header>
+    </div>
   );
 }
 
