@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Error from './Error';
 import shorid from 'shortid'
 
-const Formulario = () => {
+const Formulario = ({agregarNuevoGasto}) => {
     const [nombre, guardarNombre] = useState('')
     const [cantidad, guardarCantidad] = useState(0)
     const [error, guardarError] = useState(false)
@@ -25,7 +25,12 @@ const Formulario = () => {
             id: shorid.generate()
         }
 
-        console.log(gasto)
+        // Pasar el gasto al componente principal
+        agregarNuevoGasto(gasto)
+
+        // Resetear el form
+        guardarNombre('')
+        guardarCantidad(0)
     }
 
     return(
