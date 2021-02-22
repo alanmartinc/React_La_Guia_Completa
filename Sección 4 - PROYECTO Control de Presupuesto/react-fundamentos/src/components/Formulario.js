@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import Error from './Error'
+import Error from './Error';
+import shorid from 'shortid'
 
 const Formulario = () => {
     const [nombre, guardarNombre] = useState('')
@@ -16,6 +17,15 @@ const Formulario = () => {
             return
         }
         guardarError(false)
+
+        // Construir el gasto
+        const gasto = {
+            nombre, 
+            cantidad,
+            id: shorid.generate()
+        }
+
+        console.log(gasto)
     }
 
     return(
