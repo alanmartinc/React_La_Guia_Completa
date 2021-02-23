@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Error from './Error';
-import shorid from 'shortid'
+import shorid from 'shortid';
+import PropTypes from 'prop-types';
 
 const Formulario = ({guardarGasto, guardarCrearGasto}) => {
     const [nombre, guardarNombre] = useState('')
@@ -53,6 +54,11 @@ const Formulario = ({guardarGasto, guardarCrearGasto}) => {
             <input type="submit" className="button-primary u-full-width" value="Agregar Gasto"></input>
         </form>
     ) 
+}
+
+Formulario.propTypes = {
+    guardarGasto: PropTypes.func.isRequired,
+    guardarCrearGasto: PropTypes.func.isRequired
 }
 
 export default Formulario;
