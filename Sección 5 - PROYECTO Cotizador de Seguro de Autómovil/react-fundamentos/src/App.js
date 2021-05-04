@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Components/Header';
+import Formulario from './Components/Formulario';
 import styled from '@emotion/styled';
 
 const Contenedor = styled.div`
@@ -16,11 +17,11 @@ function App() {
   return(
     <Contenedor>
       <Header titulo='Cotizador de Seguros'/>
-    </Contenedor>
 
-    <ContenedorFormulario>
-      
-    </ContenedorFormulario>
+      <ContenedorFormulario>
+        <Formulario/>
+      </ContenedorFormulario>
+    </Contenedor>
   );
 }
 
