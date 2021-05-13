@@ -6,17 +6,23 @@ function App() {
   // State de la app
   const [busqueda, guardarBusqueda] = useState('');
   const [imagenes, guardarImagenes] = useState([]);
+  const [paginaActual, guardarPaginaActual] = useState(1);
+  const [totalPaginas, guardarTotalPaginas] = useState(1);
 
   useEffect(() => {
     if(busqueda === '') return;
     const consultarApi = async () => {
-      const imagenesPorPagina = 12;
+      const imagenesPorPagina = 14;
       const key = '21588964-8c9102f5b4a4ebdcabf3a17cb';
       const url = `https://pixabay.com/api/?key=${key}&q=${busqueda}&per_page=${imagenesPorPagina}`;
 
       const respuesta = await fetch(url);
       const resultado = await respuesta.json();
       guardarImagenes(resultado.hits);
+
+      // Calcular el total de paginas
+      const calcularTotalPaginas = Math.ceil(resultado.totalHits / imagenesPorPagina);
+      guardarTotalPaginas(calcularTotalPaginas);
     }
     consultarApi();
   }, [busqueda])
