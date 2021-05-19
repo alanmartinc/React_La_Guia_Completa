@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {CategoriasContext} from '../context/CategoriasContext';
 
 const Formulario = () => {
+    const {hola} = useContext(CategoriasContext);
+    alert(hola);
+
     return(
         <form className="col-12">
             <fieldset className="text-center">
