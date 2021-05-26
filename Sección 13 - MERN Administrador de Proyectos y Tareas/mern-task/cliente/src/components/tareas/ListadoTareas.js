@@ -3,7 +3,7 @@ import Tarea from './Tarea';
 import ProyectoContext from '../../context/proyectos/ProyectoContext';
 
 const ListadoTareas = () => {
-    // Obtener el state de 
+    // Obtener el state de state inicial
     const proyectosContext = useContext(ProyectoContext);
     const {proyecto} = proyectosContext;
 
