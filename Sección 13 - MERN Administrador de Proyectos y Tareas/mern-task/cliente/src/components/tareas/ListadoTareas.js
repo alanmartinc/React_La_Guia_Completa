@@ -2,6 +2,7 @@ import React, {Fragment, useContext} from 'react';
 import Tarea from './Tarea';
 import ProyectoContext from '../../context/proyectos/ProyectoContext';
 import TareaContext from '../../context/tareas/TareaContext';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 const ListadoTareas = () => {
     // Obtener el state de state inicial
@@ -31,12 +32,19 @@ const ListadoTareas = () => {
                 {tareasproyecto.length === 0 
                     ? (<li className="tarea"><p>No hay tareas</p></li>)
 
-                    : tareasproyecto.map(tarea => (
-                        <Tarea
-                            key={tarea.id}
-                            tarea={tarea}
-                        />
-                    ))
+                    : <TransitionGroup>
+                        {tareasproyecto.map(tarea => (
+                            <CSSTransition
+                                key={tarea.id}
+                                timeout={200}
+                                classNames="tarea"
+                            >
+                                <Tarea
+                                    tarea={tarea}
+                                />
+                            </CSSTransition>
+                        ))}
+                    </TransitionGroup>
                 }
             </ul>
 
