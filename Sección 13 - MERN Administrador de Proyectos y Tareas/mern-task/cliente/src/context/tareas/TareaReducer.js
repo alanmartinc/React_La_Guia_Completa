@@ -1,6 +1,7 @@
 import {
     TAREAS_PROYECTO,
-    AGREGAR_TAREA
+    AGREGAR_TAREA,
+    VALIDAR_TAREA
 } from '../../types';
 
 export default (state, action) => {
@@ -13,7 +14,13 @@ export default (state, action) => {
         case AGREGAR_TAREA:
             return {
                 ...state,
-                tareas: [...state.tareas, action.payload]
+                tareas: [...state.tareas, action.payload],
+                errortarea: false
+            }
+        case VALIDAR_TAREA:
+            return {
+                ...state,
+                errortarea: true
             }
         default:
             return state;
