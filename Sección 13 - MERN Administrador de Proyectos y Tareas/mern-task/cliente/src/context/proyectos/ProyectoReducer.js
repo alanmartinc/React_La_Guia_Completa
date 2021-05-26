@@ -1,4 +1,4 @@
-import {FORMULARIO_PROYECTO, OBTENER_PROYECTOS, AGREGAR_PROYECTO} from '../../types';
+import {FORMULARIO_PROYECTO, OBTENER_PROYECTOS, AGREGAR_PROYECTO, VALIDAR_FORMULARIO} from '../../types';
 
 export default (state, action) => {
     switch(action.type) {
@@ -16,7 +16,13 @@ export default (state, action) => {
             return {
                 ...state,
                 proyectos: [...state.proyectos, action.payload],
-                formulario: false
+                formulario: false,
+                errorformulario: false
+            }
+        case VALIDAR_FORMULARIO:
+            return {
+                ...state,
+                errorformulario: true
             }
         default: 
             return state;
