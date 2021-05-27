@@ -1,9 +1,16 @@
 const Usuario = require('../models/Usuario');
 const bcryptjs = require('bcryptjs');
+const {validationResult} = require('express-validator');
 
 exports.crearUsuario = async (req, res) => {
+    // Revisar si hay errores
+    const errores = validationResult(req);
+
     // Extraer email y password
     const {email, password} = req.body;
+    if(!errores.isEmpty()) {
+        return res.status(400).json({errores: errores.array()})
+    }
 
     try {
         // Revisar que el usuario registrado sea único
