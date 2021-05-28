@@ -34,3 +34,33 @@ exports.obtenerProyectos = async (req, res) => {
         res.status(500).send('Hubo un error');
     }
 }
+
+// Actualiza un proyecto
+exports.actualizarProyecto = async (req, res) => {
+    // Revisar si hay errores
+    const errores = validationResult(req);
+    if(!errores.isEmpty()) {
+        return res.status(400).json({errores: errores.array()})
+    }
+
+    // Extraer la información del proyecto
+    const {nombre} = req.body;
+    const nuevoProyecto = {};
+
+    if(nombre) {
+        nuevoProyecto.nombre = nombre;
+    }
+
+    try {
+        // Revisar el ID
+
+        // Si el proyecto existe o no
+
+        // Verificar el creador del proyecto
+
+        // Actualizar
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Error en el servidor');
+    }
+}
