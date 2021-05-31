@@ -20,4 +20,4 @@ const TareaSchema = mongoose.Schema({
     }
 });
 
-module.export = mongoose.model('Tarea', TareaSchema);
+module.exports = mongoose.model('Tarea', TareaSchema);
