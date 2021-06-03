@@ -27,7 +27,7 @@ const ProyectoState = props => {
     const mostrarFormulario = () => {
         dispatch({
             type: FORMULARIO_PROYECTO
-        })
+        });
     }
 
     // Obtener los proyectos
@@ -54,7 +54,7 @@ const ProyectoState = props => {
             dispatch({
                 type: AGREGAR_PROYECTO,
                 payload: resultado.data
-            })
+            });
         } catch (error) {
             console.log(error);
         }
@@ -64,7 +64,7 @@ const ProyectoState = props => {
     const mostrarError = () => {
         dispatch({
             type: VALIDAR_FORMULARIO
-        })
+        });
     }
 
     // Selecciona el proyecto que el usuario dio click
@@ -72,15 +72,20 @@ const ProyectoState = props => {
         dispatch({
             type: PROYECTO_ACTUAL,
             payload: proyectoId
-        })
+        });
     }
 
     // Elimina un proyecto
-    const eliminarProyecto = proyectoId => {
-        dispatch({
-            type: ELIMINAR_PROYECTO,
-            payload: proyectoId
-        })
+    const eliminarProyecto = async proyectoId => {
+        try {
+            await clienteAxios.delete(`/api/proyectos/${proyectoId}`);
+            dispatch({
+                type: ELIMINAR_PROYECTO,
+                payload: proyectoId
+            });
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (

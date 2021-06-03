@@ -45,7 +45,7 @@ const TareaState = props => {
         dispatch({
             type: TAREAS_PROYECTO,
             payload: proyectoId
-        })
+        });
     }
 
     // Agregar una tarea al proyecto seleccionado
@@ -54,14 +54,14 @@ const TareaState = props => {
         dispatch({
             type: AGREGAR_TAREA,
             payload: tarea
-        })
+        });
     }
 
     // Valida y muestra un error en caso que sea necesario
     const validarTarea = () => {
         dispatch({
             type: VALIDAR_TAREA
-        })
+        });
     }
 
     // Eliminar tarea por id
@@ -69,7 +69,7 @@ const TareaState = props => {
         dispatch({
             type: ELIMINAR_TAREA,
             payload: id
-        })
+        });
     }
 
     // Cambia el estado de cada tarea
@@ -77,7 +77,7 @@ const TareaState = props => {
         dispatch({
             type: ESTADO_TAREA,
             payload: tarea
-        })
+        });
     }
 
     // Extrae una tarea para edición
@@ -85,7 +85,7 @@ const TareaState = props => {
         dispatch({
             type: TAREA_ACTUAL,
             payload: tarea
-        })
+        });
     }
 
     // Edita o modifica una tarea
@@ -93,14 +93,14 @@ const TareaState = props => {
         dispatch({
             type: ACTUALIZAR_TAREA,
             payload: tarea
-        })
+        });
     }
 
     // Elimina la tarea seleccionada
     const limpiarTarea = () => {
         dispatch({
             type: LIMPIAR_TAREA
-        })
+        });
     }
 
     return(
