@@ -38,7 +38,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "uuid": "^8.3.2"
-  }
+  "devDependencies": {}
 }
