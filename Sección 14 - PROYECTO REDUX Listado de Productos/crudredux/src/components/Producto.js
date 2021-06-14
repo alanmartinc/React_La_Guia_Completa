@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import {useDispatch} from 'react-redux';
 
 // Actions de Redux
-import {borrarProductoAction} from '../actions/productoActions';
+import {borrarProductoAction, obtenerProductoEditar} from '../actions/productoActions';
 
 const Producto = ({producto}) => {
     const {nombre, precio, id} = producto;
@@ -36,6 +36,7 @@ const Producto = ({producto}) => {
 
     // Función que redirige de forma programada
     const redireccionarEdicion = producto => {
+        dispatch(obtenerProductoEditar(producto));
         history.push(`/productos/editar/${producto.id}`)
     }
 
