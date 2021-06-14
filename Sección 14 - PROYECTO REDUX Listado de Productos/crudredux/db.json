@@ -1,8 +1,18 @@
 {
   "productos": [
     {
-      "id": 5,
-      "nombre": "Kiwi",
+      "id": 1,
+      "nombre": "Kiwi 1",
+      "precio": "300"
+    },
+    {
+      "id": 2,
+      "nombre": "Kiwi 2",
+      "precio": "300"
+    },
+    {
+      "id": 3,
+      "nombre": "Kiwi 3",
       "precio": "300"
     }
   ]
