@@ -99,11 +99,26 @@ const descargaProductosError = () => ({
 export function borrarProductoAction(id) {
     return async (dispatch) => {
         dispatch(obtenerProductoEliminar());
-        console.log(id);
+        
+        try {
+            await clienteAxios.delete(`/productos/${id}`);
+            dispatch(eliminarProductoExito());
+        } catch (error) {
+            
+        }
     }
 }
 
 const obtenerProductoEliminar = id => ({
     type: OBTENER_PRODUCTO_ELIMINAR,
     payload: id
+});
+
+const eliminarProductoExito = () => ({
+    type: PRODUCTO_ELIMINADO_EXITO
+});
+
+const eliminarProductoError = () => ({
+    type: PRODUCTO_ELIMINADO_ERROR,
+    payload: true
 });

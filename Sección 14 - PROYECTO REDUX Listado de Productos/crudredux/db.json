@@ -1,26 +1,6 @@
 {
   "productos": [
     {
-      "id": 1,
-      "nombre": "Zanahoria",
-      "precio": "30"
-    },
-    {
-      "id": 2,
-      "nombre": "Manzana",
-      "precio": "50"
-    },
-    {
-      "id": 3,
-      "nombre": "Naranja",
-      "precio": "80"
-    },
-    {
-      "id": 4,
-      "nombre": "Frutilla",
-      "precio": "200"
-    },
-    {
       "id": 5,
       "nombre": "Kiwi",
       "precio": "300"
