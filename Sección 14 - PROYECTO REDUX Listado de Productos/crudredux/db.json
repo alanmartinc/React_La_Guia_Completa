@@ -34,6 +34,16 @@
       "nombre": "Alan",
       "precio": 320,
       "id": 7
+    },
+    {
+      "nombre": "jugo de piña",
+      "precio": 100,
+      "id": 8
+    },
+    {
+      "nombre": "jugo de piña",
+      "precio": 100,
+      "id": 9
     }
   ]
 }
