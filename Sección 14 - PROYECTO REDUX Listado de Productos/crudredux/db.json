@@ -2,23 +2,28 @@
   "productos": [
     {
       "id": 1,
-      "nombre": "Jugo de Zanahoria",
-      "precio": "31111"
+      "nombre": "Zanahoria",
+      "precio": "30"
     },
     {
       "id": 2,
-      "nombre": "Jugo de Naranja",
-      "precio": "1"
+      "nombre": "Manzana",
+      "precio": "50"
     },
     {
-      "nombre": "Rib Eye 800g",
-      "precio": "200",
-      "id": 4
+      "id": 3,
+      "nombre": "Naranja",
+      "precio": "80"
     },
     {
-      "nombre": "Jugo de Fresa",
-      "precio": "200",
-      "id": 5
+      "id": 4,
+      "nombre": "Frutilla",
+      "precio": "200"
+    },
+    {
+      "id": 5,
+      "nombre": "Kiwi",
+      "precio": "300"
     }
   ]
 }
