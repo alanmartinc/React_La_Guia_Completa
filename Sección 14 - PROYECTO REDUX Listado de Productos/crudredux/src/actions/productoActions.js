@@ -68,7 +68,7 @@ export function obtenerProductosAction() {
         dispatch(descargarProductos());
 
         try {
-            const respuesta = await clienteAxios.get('/ASFA');
+            const respuesta = await clienteAxios.get('/productos');
             dispatch(descargaProductosExitosa(respuesta.data));
         } catch (error) {
             console.log(error);
