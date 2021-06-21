@@ -1,9 +1,11 @@
 import React from 'react'
-import Buscar from '../ui/Buscar'
-import Navegacion from './Navegacion'
 import Link from 'next/link'
 import styled from '@emotion/styled'
 import {css} from '@emotion/react'
+import Buscar from '../ui/Buscar'
+import Navegacion from './Navegacion'
+import Boton from '../ui/Boton'
+
 
 const Cabecera = styled.header`
     border-bottom: 2px solid var(--gris3);
@@ -29,7 +31,18 @@ const Logo = styled.p`
     margin-right: 2rem;
 `;
 
+const CentrarElemento = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+const SepararElemento = styled.p`
+    margin-right: 2rem;
+`;
+
 const Header = () => {
+    const usuario = true;
+
     return(
         <Cabecera>
             <ContenedorHeader>
@@ -43,14 +56,28 @@ const Header = () => {
                     <Navegacion/>
                 </div>
 
-                <div>
-                    <p>Hola: Alan</p>
+                <CentrarElemento>
+                    {usuario ? (
+                        <>
+                            <SepararElemento>Hola: Alan</SepararElemento>
 
-                    <button type="button">Cerrar Sesión</button>
-
-                    <Link href="/">Login</Link>
-                    <Link href="/">Crear Cuenta</Link>
-                </div>
+                            <Boton
+                                bgColor="true"
+                            >Cerrar Sesión</Boton>
+                        </>
+                    ) : (
+                        <>
+                            <Link href="/">
+                                <Boton
+                                    bgColor="true"
+                                >Login</Boton>
+                            </Link>
+                            <Link href="/">
+                                <Boton>Crear Cuenta</Boton>
+                            </Link>
+                        </>
+                    )}
+                </CentrarElemento>
             </ContenedorHeader>
         </Cabecera>
     );
