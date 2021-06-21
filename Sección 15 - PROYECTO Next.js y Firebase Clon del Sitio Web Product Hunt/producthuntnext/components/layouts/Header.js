@@ -46,7 +46,7 @@ const Header = () => {
     return(
         <Cabecera>
             <ContenedorHeader>
-                <div>
+                <CentrarElemento>
                     <Link href="/">
                         <Logo>P</Logo>
                     </Link>
@@ -54,7 +54,7 @@ const Header = () => {
                     <Buscar/>
 
                     <Navegacion/>
-                </div>
+                </CentrarElemento>
 
                 <CentrarElemento>
                     {usuario ? (
