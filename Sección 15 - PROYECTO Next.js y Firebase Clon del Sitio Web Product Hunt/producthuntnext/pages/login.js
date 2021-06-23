@@ -27,8 +27,14 @@ const Login = () => {
 
   const {email, password} = valores;
 
-  function iniciarSesion() {
-    console.log('Iniciando Sesión...');
+  async function iniciarSesion() {
+    try {
+      await firebase.login(email, password);
+      Router.push('/');
+    } catch (error) {
+      console.log('Hubo un error al autenticar el usuario ', error.message);
+      guardarError(error.message);
+    }
   }
 
   return (
