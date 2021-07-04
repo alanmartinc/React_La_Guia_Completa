@@ -1,10 +1,12 @@
 import React, {useEffect, useContext, useState} from 'react'
 import {useRouter} from 'next/router'
-
-import Layout from '../../components/layouts/Layout'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import {es} from 'date-fns/locale'
 import {FirebaseContext} from '../../firebase'
+import Layout from '../../components/layouts/Layout'
 import Error404 from '../../components/layouts/404'
 import styled from '@emotion/styled'
+import {Campo, InputSubmit} from '../../components/ui/Formulario'
 
 const TextoCentrado = styled.h1`
     margin-top: 5rem;
@@ -17,6 +19,10 @@ const ContenedorProducto = styled.div`
         grid-template-columns: 2fr 1fr;
         column-gap: 2rem;
     }
+`;
+
+const EspaciadoComentario = styled.h2`
+    margin: 2rem 0;
 `;
 
 const Producto = () => {
@@ -63,7 +69,32 @@ const Producto = () => {
 
             <ContenedorProducto>
                 <div>
-                    1
+                    <p>Publicado hace: {formatDistanceToNow(new Date(creado), {locale: es})}</p>
+                    <img src={urlimagen}/>
+                    <p>{descripcion}</p>
+
+                    <h2>Agrega tu comentario</h2>
+                    <form>
+                        <Campo>
+                            <input
+                                type="text"
+                                name="mensaje"
+                            />
+                        </Campo>
+
+                        <InputSubmit
+                            type="submit"
+                            value="Agregar Comentario"
+                        />
+                    </form>
+
+                    <EspaciadoComentario>Comentarios</EspaciadoComentario>
+                    {comentarios.map(comentario => (
+                        <li>
+                            <p>{comentario.nombre}</p>
+                            <p>Escrito por: {comentario.usuarioNombre}</p>
+                        </li>
+                    ))}
                 </div>
 
                 <aside>
