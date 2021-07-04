@@ -7,6 +7,7 @@ import Layout from '../../components/layouts/Layout'
 import Error404 from '../../components/layouts/404'
 import styled from '@emotion/styled'
 import {Campo, InputSubmit} from '../../components/ui/Formulario'
+import Boton from '../../components/ui/Boton'
 
 const TextoCentrado = styled.h1`
     margin-top: 5rem;
@@ -23,6 +24,15 @@ const ContenedorProducto = styled.div`
 
 const EspaciadoComentario = styled.h2`
     margin: 2rem 0;
+`;
+
+const EspaciadoVotos = styled.div`
+    margin-top: 5rem;
+    text-align: center;
+`;
+
+const CentrarParrafo = styled.p`
+    text-align: center;
 `;
 
 const Producto = () => {
@@ -98,7 +108,16 @@ const Producto = () => {
                 </div>
 
                 <aside>
-                    2
+                    <Boton
+                        target="_blank"
+                        bgColor="true"
+                        href={url}
+                    >Visitar URL</Boton>
+
+                    <EspaciadoVotos>
+                        <CentrarParrafo>{votos} Votos</CentrarParrafo>
+                        <Boton>Votar</Boton>
+                    </EspaciadoVotos>
                 </aside>
             </ContenedorProducto>
             </>
