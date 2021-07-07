@@ -45,7 +45,7 @@ const Producto = () => {
     const {query: {id}} = router;
 
     // Context de firebase
-    const {firebase} = useContext(FirebaseContext);
+    const {firebase, usuario} = useContext(FirebaseContext);
 
     useEffect(() => {
         if(id) {
@@ -84,20 +84,24 @@ const Producto = () => {
                     <img src={urlimagen}/>
                     <p>{descripcion}</p>
 
-                    <h2>Agrega tu comentario</h2>
-                    <form>
-                        <Campo>
-                            <input
-                                type="text"
-                                name="mensaje"
-                            />
-                        </Campo>
-
-                        <InputSubmit
-                            type="submit"
-                            value="Agregar Comentario"
-                        />
-                    </form>
+                    {usuario && (
+                        <>
+                            <h2>Agrega tu comentario</h2>
+                            <form>
+                                <Campo>
+                                    <input
+                                        type="text"
+                                        name="mensaje"
+                                    />
+                                </Campo>
+        
+                                <InputSubmit
+                                    type="submit"
+                                    value="Agregar Comentario"
+                                />
+                            </form>
+                        </>
+                    )}
 
                     <EspaciadoComentario>Comentarios</EspaciadoComentario>
                     {comentarios.map(comentario => (
@@ -117,7 +121,9 @@ const Producto = () => {
 
                     <EspaciadoVotos>
                         <CentrarParrafo>{votos} Votos</CentrarParrafo>
-                        <Boton>Votar</Boton>
+                        {usuario && (
+                            <Boton>Votar</Boton>
+                        )}
                     </EspaciadoVotos>
                 </aside>
             </ContenedorProducto>

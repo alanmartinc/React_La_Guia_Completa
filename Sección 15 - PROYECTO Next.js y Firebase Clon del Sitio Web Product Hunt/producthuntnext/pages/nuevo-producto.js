@@ -6,6 +6,7 @@ import Layout from '../components/layouts/Layout'
 import {Formulario, Campo, InputSubmit, Error} from '../components/ui/Formulario'
 import styled from '@emotion/styled'
 import {FirebaseContext} from '../firebase'
+import Error404 from '../components/layouts/404'
 
 // Validaciones
 import useValidacion from '../hooks/useValidacion'
@@ -114,8 +115,9 @@ export default function NuevoProducto() {
   return (
     <div>
       <Layout>
-        <>
-          <Centrar><h1>Nuevo Producto</h1></Centrar>
+        {!usuario ? <Error404/> : (
+          <>
+            <Centrar><h1>Nuevo Producto</h1></Centrar>
             <Formulario
               onSubmit={handleSubmit}
               noValidate
@@ -206,7 +208,8 @@ export default function NuevoProducto() {
                 value="Crear Producto"
               />
             </Formulario>
-        </>
+          </>
+        )}
       </Layout>
     </div>
   )

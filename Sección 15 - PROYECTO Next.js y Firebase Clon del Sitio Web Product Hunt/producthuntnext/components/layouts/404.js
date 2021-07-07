@@ -8,7 +8,7 @@ const TextoCentrado = styled.h1`
 
 const Error404 = () => {
     return(
-        <TextoCentrado>Producto no existente</TextoCentrado>
+        <TextoCentrado>No se puede mostrar</TextoCentrado>
     );
 }
 
