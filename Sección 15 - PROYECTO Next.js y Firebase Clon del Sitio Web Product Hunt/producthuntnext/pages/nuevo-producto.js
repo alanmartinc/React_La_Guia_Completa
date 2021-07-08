@@ -69,7 +69,8 @@ export default function NuevoProducto() {
       creador: {
         id: usuario.uid,
         nombre: usuario.displayName
-      }
+      },
+      haVotado: []
     }
 
     // Insertarlo en la base de datos
@@ -129,7 +130,7 @@ export default function NuevoProducto() {
                     <input
                       type="text"
                       id="nombre"
-                      placeholder="Tu Nombre"
+                      placeholder="Nombre del Producto"
                       name="nombre"
                       value={nombre}
                       onChange={handleChange}
