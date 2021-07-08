@@ -45,6 +45,16 @@ const NegritaSpan = styled.span`
     font-weight: bold;
 `;
 
+const CreadorProducto = styled.p`
+    padding: .5rem 2rem;
+    background-color: #DA552F;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+`;
+
 const Producto = () => {
     // State del componente
     const [producto, guardarProducto] = useState({});
@@ -110,6 +120,13 @@ const Producto = () => {
         });
     }
 
+    // Identifica si el comentario es del creador del producto
+    const esCreador = id => {
+        if(creador.id == id) {
+            return true;
+        }
+    }
+
     const agregarComentario = e => {
         e.preventDefault();
 
@@ -145,74 +162,78 @@ const Producto = () => {
                 <TextoCentrado>
                     {nombre}
                 </TextoCentrado>
-            </div>
+            
+                <ContenedorProducto>
+                    <div>
+                        <p>Publicado hace: {formatDistanceToNow(new Date(creado), {locale: es})}</p>
+                        <p>Por: {creador.nombre} de {empresa}</p>
+                        <img src={urlimagen}/>
+                        <p>{descripcion}</p>
 
-            <ContenedorProducto>
-                <div>
-                    <p>Publicado hace: {formatDistanceToNow(new Date(creado), {locale: es})}</p>
-                    <p>Por: {creador.nombre} de {empresa}</p>
-                    <img src={urlimagen}/>
-                    <p>{descripcion}</p>
-
-                    {usuario && (
-                        <>
-                            <h2>Agrega tu comentario</h2>
-                            <form
-                                onSubmit={agregarComentario}
-                            >
-                                <Campo>
-                                    <input
-                                        type="text"
-                                        name="mensaje"
-                                        onChange={comentarioChange}
-                                    />
-                                </Campo>
-        
-                                <InputSubmit
-                                    type="submit"
-                                    value="Agregar Comentario"
-                                />
-                            </form>
-                        </>
-                    )}
-
-                    <EspaciadoComentario>Comentarios</EspaciadoComentario>
-
-                    {comentarios.length === 0 ? "Aún no hay comentarios" : (
-                        <ul>
-                            {comentarios.map((comentario, i) => (
-                                <BorderList
-                                    key={`${comentario.usuarioId}-${i}`}
-                                >
-                                    <p>{comentario.mensaje}</p>
-                                    <p>Escrito por:
-                                        <NegritaSpan>
-                                            {''} {comentario.usuarioNombre}
-                                        </NegritaSpan>
-                                    </p>
-                                </BorderList>
-                            ))}
-                        </ul>
-                    )}
-                </div>
-
-                <aside>
-                    <Boton
-                        target="_blank"
-                        bgColor="true"
-                        href={url}
-                    >Visitar URL</Boton>
-
-                    <EspaciadoVotos>
-                        <CentrarParrafo>{votos} Votos</CentrarParrafo>
                         {usuario && (
-                            <Boton
-                                onClick={votarProducto}
-                            >Votar</Boton>
+                            <>
+                                <h2>Agrega tu comentario</h2>
+                                <form
+                                    onSubmit={agregarComentario}
+                                >
+                                    <Campo>
+                                        <input
+                                            type="text"
+                                            name="mensaje"
+                                            onChange={comentarioChange}
+                                        />
+                                    </Campo>
+            
+                                    <InputSubmit
+                                        type="submit"
+                                        value="Agregar Comentario"
+                                    />
+                                </form>
+                            </>
                         )}
-                    </EspaciadoVotos>
-                </aside>
-            </ContenedorProducto>
+
+                        <EspaciadoComentario>Comentarios</EspaciadoComentario>
+
+                        {comentarios.length === 0 ? "Aún no hay comentarios" : (
+                            <ul>
+                                {comentarios.map((comentario, i) => (
+                                    <BorderList
+                                        key={`${comentario.usuarioId}-${i}`}
+                                    >
+                                        <p>{comentario.mensaje}</p>
+                                        <p>Escrito por:
+                                            <NegritaSpan>
+                                                {''} {comentario.usuarioNombre}
+                                            </NegritaSpan>
+                                        </p>
+
+                                        {esCreador(comentario.usuarioId) && 
+                                            <CreadorProducto>Es Creador</CreadorProducto>
+                                        }
+                                    </BorderList>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+
+                    <aside>
+                        <Boton
+                            target="_blank"
+                            bgColor="true"
+                            href={url}
+                        >Visitar URL</Boton>
+
+                        <EspaciadoVotos>
+                            <CentrarParrafo>{votos} Votos</CentrarParrafo>
+                            {usuario && (
+                                <Boton
+                                    onClick={votarProducto}
+                                >Votar</Boton>
+                            )}
+                        </EspaciadoVotos>
+                    </aside>
+                </ContenedorProducto>
+            </div>
             </>
         </Layout>
     );
