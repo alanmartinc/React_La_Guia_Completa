@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from '@emotion/styled'
 import {css} from '@emotion/react'
 
@@ -32,11 +32,24 @@ const Position = styled.form`
 `;
 
 const Buscar = () => {
+    const [busqueda, guardarBusqueda] = useState('');
+
+    const buscarProducto = e => {
+        e.preventDefault();
+
+        if(busqueda.trim() === '') return;
+
+        // Redireccionar a /buscar
+    }
+
     return(
-        <Position>
+        <Position
+            onSubmit={buscarProducto}
+        >
             <InputText 
                 type="text"
                 placeholder="Buscar Productos"
+                onChange={e => guardarBusqueda(e.target.value)}
             />
 
             <InputSubmit type="submit">Buscar</InputSubmit>
